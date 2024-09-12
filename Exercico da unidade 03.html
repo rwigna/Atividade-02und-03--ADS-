@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama de Classes - Sistema de PDV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .class-diagram {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 20px 0;
+        }
+        .class-diagram h2 {
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 5px;
+        }
+        .class-diagram ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .class-diagram li {
+            margin-bottom: 10px;
+        }
+        .class-diagram p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Diagrama de Classes - Sistema de PDV</h1>
+
+    <div class="class-diagram">
+        <h2>Classe Produto</h2>
+        <p><strong>Atributos:</strong></p>
+        <ul>
+            <li>idProduto: int</li>
+            <li>nome: String</li>
+            <li>preco: double</li>
+            <li>quantidadeEmEstoque: int</li>
+        </ul>
+        <p><strong>Métodos:</strong></p>
+        <ul>
+            <li>cadastrarProduto()</li>
+            <li>atualizarEstoque(quantidade: int)</li>
+            <li>baixarEstoque(quantidade: int)</li>
+            <li>consultarEstoque()</li>
+        </ul>
+    </div>
+
+    <div class="class-diagram">
+        <h2>Classe Cliente</h2>
+        <p><strong>Atributos:</strong></p>
+        <ul>
+            <li>idCliente: int</li>
+            <li>nome: String</li>
+            <li>endereco: String</li>
+            <li>telefone: String</li>
+            <li>valorEmDebito: double</li>
+        </ul>
+        <p><strong>Métodos:</strong></p>
+        <ul>
+            <li>cadastrarCliente()</li>
+            <li>consultarDebito()</li>
+            <li>atualizarDebito(valor: double)</li>
+            <li>pagarDebito(valor: double)</li>
+        </ul>
+    </div>
+
+    <div class="class-diagram">
+        <h2>Classe Venda</h2>
+        <p><strong>Atributos:</strong></p>
+        <ul>
+            <li>idVenda: int</li>
+            <li>data: Date</li>
+            <li>valorTotal: double</li>
+            <li>statusPagamento: boolean</li>
+        </ul>
+        <p><strong>Métodos:</strong></p>
+        <ul>
+            <li>realizarVenda(cliente: Cliente, itens: List[ItemVenda])</li>
+            <li>calcularTotalVenda()</li>
+            <li>registrarPagamento(valor: double, tipoPagamento: String)</li>
+        </ul>
+    </div>
+
+    <div class="class-diagram">
+        <h2>Classe ItemVenda</h2>
+        <p><strong>Atributos:</strong></p>
+        <ul>
+            <li>idItemVenda: int</li>
+            <li>produto: Produto</li>
+            <li>quantidade: int</li>
+            <li>precoUnitario: double</li>
+        </ul>
+        <p><strong>Métodos:</strong></p>
+        <ul>
+            <li>calcularSubtotal()</li>
+        </ul>
+    </div>
+
+    <div class="class-diagram">
+        <h2>Classe Pagamento</h2>
+        <p><strong>Atributos:</strong></p>
+        <ul>
+            <li>idPagamento: int</li>
+            <li>tipoPagamento: String</li>
+            <li>valorPago: double</li>
+            <li>dataPagamento: Date</li>
+        </ul>
+        <p><strong>Métodos:</strong></p>
+        <ul>
+            <li>realizarPagamento()</li>
+        </ul>
+    </div>
+
+    <div class="class-diagram">
+        <h2>Classe Relatorio</h2>
+        <p><strong>Métodos:</strong></p>
+        <ul>
+            <li>gerarRelatorioVendas()</li>
+            <li>gerarRelatorioEstoque()</li>
+            <li>gerarRelatorioClientesDevedores()</li>
+        </ul>
+    </div>
+
+</body>
+</html>
